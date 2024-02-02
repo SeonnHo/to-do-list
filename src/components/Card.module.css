@@ -1,0 +1,192 @@
+.card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  min-height: 500px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 2rem 0rem black;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 300px;
+  }
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: #eaeaea;
+  border-radius: 1rem 1rem 0px 0px;
+  border-bottom: 0.1rem solid #b9b9b9;
+  padding: 0rem 1rem;
+}
+
+.nav {
+  margin-right: 0.3rem;
+}
+.button {
+  border: none;
+  background-color: transparent;
+  color: #e59500;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0;
+  margin: 0rem 0.7rem;
+}
+
+.button.selected {
+  color: orange;
+  border-bottom: 0.15rem solid #585858;
+}
+/* 
+.button:focus {
+  color: orange;
+  border-bottom: 0.15rem solid #585858;
+} */
+
+.button:hover {
+  color: orange;
+}
+
+.darkMode {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.darkMode:hover {
+  color: #343434;
+}
+
+/* 메인 */
+.main {
+  flex: 1;
+  padding: 0.5rem 1rem;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid rgba(128, 128, 128, 0.3);
+}
+
+.todo:nth-last-child(1) {
+  border: none;
+  padding: 0;
+}
+
+.checkbox {
+  margin: 0.3rem;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.1rem solid gray;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  border: none;
+  background-image: url('/public/check_white.png');
+  background-position: center center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-color: orange;
+  animation: checked 0.5s ease;
+}
+
+.checkbox:checked + .content {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.checkbox:not(:checked):hover {
+  border: none;
+  background-image: url('/public/check_white.png');
+  background-position: center center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-color: orange;
+  opacity: 30%;
+}
+
+.todo label {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.content {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.deletebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background-color: gray;
+  transition: all ease 0.5s;
+}
+
+.deletebox:hover {
+  background-color: orange;
+  transform: scale(1.2) rotate(-30deg);
+}
+
+.delete {
+  font-size: 1rem;
+  color: white;
+}
+
+/* 푸터 */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #eaeaea;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.inputBox {
+  display: flex;
+  width: 20rem;
+  height: 40px;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.input {
+  flex: 0.8;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.addBtn {
+  flex: 0.2;
+  background-color: orange;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
