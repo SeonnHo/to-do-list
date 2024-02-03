@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Card.module.css';
-// import { HiSun } from 'react-icons/hi';
-import { FaMoon } from 'react-icons/fa';
-import { FaTrashAlt } from 'react-icons/fa';
+import Header from './header/Header';
+import Main from './main/Main';
+import Footer from './footer/Footer';
 
 export default function Card() {
   console.log('렌더링!!!!!!!!!!!!');
@@ -78,120 +78,31 @@ export default function Card() {
     setSelected({ all: false, active: false, completed: true });
   };
 
+  const handleCompose = (isComposing) => {
+    setIsComposing(isComposing);
+  };
   return (
     <div className={styles.card}>
-      <header className={styles.header}>
-        <FaMoon className={styles.darkMode} />
-        <nav className={styles.nav}>
-          <button
-            className={`${styles.button} ${
-              selected.all ? styles.selected : ''
-            }`}
-            onClick={handleLoadAllList}
-          >
-            All
-          </button>
-          <button
-            className={`${styles.button} ${
-              selected.active ? styles.selected : ''
-            }`}
-            onClick={handleLoadActiveList}
-          >
-            Active
-          </button>
-          <button
-            className={`${styles.button} ${
-              selected.completed ? styles.selected : ''
-            }`}
-            onClick={handleLoadCompletedList}
-          >
-            Completed
-          </button>
-        </nav>
-      </header>
-      <main className={styles.main}>
-        {todos.map((todo) => {
-          if (selected.all) {
-            return (
-              <div key={todo.id} className={styles.todo}>
-                <label>
-                  <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    checked={todo.isChecked}
-                    onChange={(e) => handleCheck(e, todo.id)}
-                  />
-                  <span className={styles.content}>{todo.content}</span>
-                </label>
-                <div
-                  className={styles.deletebox}
-                  onClick={() => handleDelete(todo.id)}
-                >
-                  <FaTrashAlt className={styles.delete} />
-                </div>
-              </div>
-            );
-          } else if (selected.active && todo.isChecked === false) {
-            return (
-              <div key={todo.id} className={styles.todo}>
-                <label>
-                  <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    checked={todo.isChecked}
-                    onChange={(e) => handleCheck(e, todo.id)}
-                  />
-                  <span className={styles.content}>{todo.content}</span>
-                </label>
-                <div
-                  className={styles.deletebox}
-                  onClick={() => handleDelete(todo.id)}
-                >
-                  <FaTrashAlt className={styles.delete} />
-                </div>
-              </div>
-            );
-          } else if (selected.completed && todo.isChecked === true) {
-            return (
-              <div key={todo.id} className={styles.todo}>
-                <label>
-                  <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    checked={todo.isChecked}
-                    onChange={(e) => handleCheck(e, todo.id)}
-                  />
-                  <span className={styles.content}>{todo.content}</span>
-                </label>
-                <div
-                  className={styles.deletebox}
-                  onClick={() => handleDelete(todo.id)}
-                >
-                  <FaTrashAlt className={styles.delete} />
-                </div>
-              </div>
-            );
-          }
-          return null;
-        })}
-      </main>
-      <footer className={styles.footer}>
-        <div className={styles.inputBox}>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="Add Todo..."
-            value={input}
-            onChange={(e) => handleInput(e)}
-            onKeyDown={(e) => handleKeyDown(e)}
-            onCompositionStart={() => setIsComposing(true)}
-            onCompositionEnd={() => setIsComposing(false)}
-          />
-          <button className={styles.addBtn} onClick={handleAdd}>
-            Add
-          </button>
-        </div>
-      </footer>
+      <Header
+        selected={selected}
+        onClick={{
+          handleLoadAllList,
+          handleLoadActiveList,
+          handleLoadCompletedList,
+        }}
+      />
+      <Main
+        todos={todos}
+        selected={selected}
+        onChange={{ handleCheck, handleDelete }}
+      />
+      <Footer
+        value={input}
+        onChange={handleInput}
+        onKeyDown={handleKeyDown}
+        onCompose={handleCompose}
+        onClick={handleAdd}
+      />
     </div>
   );
 }

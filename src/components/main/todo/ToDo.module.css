@@ -1,0 +1,83 @@
+.todo {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid rgba(128, 128, 128, 0.3);
+}
+
+.todo:nth-last-child(1) {
+  border: none;
+  padding: 0;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  margin: 0.3rem;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.1rem solid gray;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  border: none;
+  background-image: url('/public/check_white.png');
+  background-position: center center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-color: orange;
+  animation: checked 0.5s ease;
+}
+
+.checkbox:checked + .content {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.checkbox:not(:checked):hover {
+  border: none;
+  background-image: url('/public/check_white.png');
+  background-position: center center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-color: orange;
+  opacity: 30%;
+}
+
+.todo label {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.content {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.deletebox {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background-color: gray;
+  transition: all ease 0.5s;
+}
+
+.deletebox:hover {
+  background-color: orange;
+  transform: scale(1.2) rotate(-30deg);
+}
+
+.delete {
+  font-size: 1rem;
+  color: black;
+}

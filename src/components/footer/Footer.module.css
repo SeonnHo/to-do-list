@@ -1,0 +1,35 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #eaeaea;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.inputBox {
+  display: flex;
+  width: 20rem;
+  height: 40px;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.input {
+  flex: 0.8;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.addBtn {
+  flex: 0.2;
+  background-color: orange;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
