@@ -1,4 +1,20 @@
-.main {
-  flex: 1;
+.todo-box {
+  height: 25rem;
   padding: 0.5rem 1rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .todo-box {
+    height: 40rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: 1rem;
 }

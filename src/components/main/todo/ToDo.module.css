@@ -28,7 +28,7 @@
   background-position: center center;
   background-size: 70%;
   background-repeat: no-repeat;
-  background-color: orange;
+  background-color: var(--color-accent-secondary);
   animation: checked 0.5s ease;
 }
 
@@ -43,7 +43,7 @@
   background-position: center center;
   background-size: 70%;
   background-repeat: no-repeat;
-  background-color: orange;
+  background-color: var(--color-accent-secondary);
   opacity: 30%;
 }
 
@@ -54,6 +54,7 @@
 }
 
 .content {
+  color: var(--color-bg-reverse);
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   font-size: 1.2rem;
@@ -68,16 +69,17 @@
   width: 1.7rem;
   height: 1.7rem;
   border-radius: 50%;
-  background-color: gray;
+  background-color: var(--color-primary);
   transition: all ease 0.5s;
 }
 
 .deletebox:hover {
-  background-color: orange;
+  background-color: var(--color-accent-secondary);
   transform: scale(1.2) rotate(-30deg);
 }
 
 .delete {
+  flex-shrink: 0;
   font-size: 1rem;
-  color: black;
+  color: var(--color-bg-reverse);
 }

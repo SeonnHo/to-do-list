@@ -1,7 +1,7 @@
 .button {
   border: none;
   background-color: transparent;
-  color: #e59500;
+  color: var(--color-accent);
   font-size: 1.2rem;
   font-weight: bold;
   padding: 0;
@@ -9,10 +9,11 @@
 }
 
 .button.selected {
-  color: orange;
-  border-bottom: 0.15rem solid #585858;
+  color: var(--color-accent-secondary);
+  border-top: 0.15rem solid var(--color-accent-secondary);
+  border-bottom: 0.15rem solid var(--color-accent-secondary);
 }
 
 .button:hover {
-  color: orange;
+  color: var(--color-accent-secondary);
 }

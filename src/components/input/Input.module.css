@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: var(--color-secondary);
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.input {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--color-bg-reverse);
+}
+
+.addBtn {
+  width: 4rem;
+  height: 2.5rem;
+  background-color: var(--color-accent-secondary);
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 0.5rem;
+}

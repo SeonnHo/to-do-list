@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Header.module.css';
-// import { HiSun } from 'react-icons/hi';
+import { MdSunny } from 'react-icons/md';
 import { FaMoon } from 'react-icons/fa';
 import SelectListButton from './select_button/SelectListButton';
+import { DarkModeContext } from '../../context/DarkModeContext';
 
 export default function Header({ selected, onClick }) {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   return (
     <header className={styles.header}>
-      <FaMoon className={styles.darkMode} />
+      {darkMode ? (
+        <MdSunny className={styles.lightMode} onClick={toggleDarkMode} />
+      ) : (
+        <FaMoon className={styles.darkMode} onClick={toggleDarkMode} />
+      )}
       <nav className={styles.nav}>
         <SelectListButton
-          selected={selected.all}
-          onClick={onClick.handleLoadAllList}
+          selected={selected === 'all'}
+          onClick={() => onClick('all')}
         >
           All
         </SelectListButton>
         <SelectListButton
-          selected={selected.active}
-          onClick={onClick.handleLoadActiveList}
+          selected={selected === 'active'}
+          onClick={() => onClick('active')}
         >
           Active
         </SelectListButton>
         <SelectListButton
-          selected={selected.completed}
-          onClick={onClick.handleLoadCompletedList}
+          selected={selected === 'completed'}
+          onClick={() => onClick('completed')}
         >
           Completed
         </SelectListButton>

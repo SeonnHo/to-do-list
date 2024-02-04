@@ -1,11 +1,12 @@
 import './App.css';
 import Card from './components/Card';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 function App() {
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <DarkModeProvider>
       <Card />
-    </div>
+    </DarkModeProvider>
   );
 }
 
