@@ -1,20 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Header.module.css';
-import { MdSunny } from 'react-icons/md';
-import { FaMoon } from 'react-icons/fa';
 import SelectListButton from './select_button/SelectListButton';
-import { DarkModeContext } from '../../context/DarkModeContext';
+import Title from './title/Title';
 
 export default function Header({ selected, onClick }) {
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-
   return (
     <header className={styles.header}>
-      {darkMode ? (
-        <MdSunny className={styles.lightMode} onClick={toggleDarkMode} />
-      ) : (
-        <FaMoon className={styles.darkMode} onClick={toggleDarkMode} />
-      )}
+      <Title />
       <nav className={styles.nav}>
         <SelectListButton
           selected={selected === 'all'}

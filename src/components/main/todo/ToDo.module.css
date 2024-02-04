@@ -24,7 +24,7 @@
 
 .checkbox:checked {
   border: none;
-  background-image: url('/public/check_white.png');
+  background-image: url('../../../assets/check_white.png');
   background-position: center center;
   background-size: 70%;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 
 .checkbox:not(:checked):hover {
   border: none;
-  background-image: url('/public/check_white.png');
+  background-image: url('../../../assets/check_white.png');
   background-position: center center;
   background-size: 70%;
   background-repeat: no-repeat;
@@ -71,6 +71,7 @@
   border-radius: 50%;
   background-color: var(--color-primary);
   transition: all ease 0.5s;
+  cursor: pointer;
 }
 
 .deletebox:hover {

@@ -1,0 +1,213 @@
+.container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.input-box > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 60%;
+}
+
+.input-box > div > input {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: var(--color-secondary);
+  color: var(--color-bg-reverse);
+}
+.input-box > div > input:focus::placeholder {
+  color: var(--color-secondary);
+}
+
+.done {
+  position: relative;
+  width: 5rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    var(--color-accent-secondary)
+  );
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.done > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.done::before,
+.done::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background: var(--color-accent-secondary);
+  transition: all 0.3s ease;
+}
+
+.done:before {
+  height: 0%;
+  width: 2px;
+}
+
+.done:after {
+  width: 0%;
+  height: 2px;
+}
+
+.done:hover {
+  background: transparent;
+}
+
+.done:hover::before {
+  height: 100%;
+}
+
+.done:hover::after {
+  width: 100%;
+}
+
+.done > span::before,
+.done > span::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  right: 0;
+  background: var(--color-accent-secondary);
+  transition: all 0.3s ease;
+}
+
+.done > span::before {
+  width: 0%;
+  height: 2px;
+}
+
+.done > span::after {
+  height: 0%;
+  width: 2px;
+}
+
+.done > span:hover {
+  color: var(--color-accent-secondary);
+}
+
+.done > span:hover::before {
+  width: 100%;
+}
+
+.done > span:hover::after {
+  height: 100%;
+}
+
+.close {
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: gray;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--color-bg-reverse);
+}
+
+/* 제목 변경 중이 아닐 때 */
+.darkMode {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: rgb(215, 215, 0);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+
+.darkMode:hover {
+  color: white;
+}
+
+.lightMode {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: rgb(255, 179, 38);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+
+.lightMode:hover {
+  color: black;
+}
+
+.title-box {
+  position: absolute;
+  bottom: 2rem;
+  right: 1rem;
+  max-width: 70%;
+  font-size: 2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.title-box.dark {
+  color: white;
+}
+
+.title {
+  display: inline;
+  margin: 0;
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+.title.dark {
+  color: white;
+}
+
+.edit {
+  color: gray;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+
+.edit:hover {
+  color: black;
+}
+
+.to-do-image {
+  transform: rotateZ(25deg);
+  position: absolute;
+  top: 0;
+  left: 1rem;
+}
