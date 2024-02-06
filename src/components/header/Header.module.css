@@ -8,11 +8,8 @@
   border-radius: 1rem 1rem 0px 0px;
   border-bottom: 0.1rem solid #b9b9b9;
   padding: 1rem 1rem;
+  transition: all 1s ease;
 }
-
-/* .header > div {
-  flex: 1;
-} */
 
 .nav {
   width: 100%;

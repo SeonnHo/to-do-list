@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './Main.module.css';
 import ToDo from './todo/ToDo';
 import Input from '../input/Input';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Main({ selected }) {
   const [todos, setTodos] = useState([]);
@@ -68,34 +69,36 @@ export default function Main({ selected }) {
   return (
     <main className={styles.main}>
       <div className={styles['todo-box']}>
-        {todos.map((todo) => {
-          if (selected === 'all') {
-            return (
-              <ToDo
-                key={todo.id}
-                todo={todo}
-                onChange={{ handleCheck, handleDelete }}
-              />
-            );
-          } else if (selected === 'active' && todo.isChecked === false) {
-            return (
-              <ToDo
-                key={todo.id}
-                todo={todo}
-                onChange={{ handleCheck, handleDelete }}
-              />
-            );
-          } else if (selected === 'completed' && todo.isChecked === true) {
-            return (
-              <ToDo
-                key={todo.id}
-                todo={todo}
-                onChange={{ handleCheck, handleDelete }}
-              />
-            );
-          }
-          return null;
-        })}
+        <AnimatePresence>
+          {todos.map((todo) => {
+            if (selected === 'all') {
+              return (
+                <ToDo
+                  key={todo.id}
+                  todo={todo}
+                  onChange={{ handleCheck, handleDelete }}
+                />
+              );
+            } else if (selected === 'active' && todo.isChecked === false) {
+              return (
+                <ToDo
+                  key={todo.id}
+                  todo={todo}
+                  onChange={{ handleCheck, handleDelete }}
+                />
+              );
+            } else if (selected === 'completed' && todo.isChecked === true) {
+              return (
+                <ToDo
+                  key={todo.id}
+                  todo={todo}
+                  onChange={{ handleCheck, handleDelete }}
+                />
+              );
+            }
+            return null;
+          })}
+        </AnimatePresence>
       </div>
       <Input onClick={handleAdd} />
     </main>

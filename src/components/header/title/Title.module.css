@@ -148,11 +148,7 @@
   color: rgb(215, 215, 0);
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all ease 0.5s;
-}
-
-.darkMode:hover {
-  color: white;
+  animation: down 1.5s ease-out;
 }
 
 .lightMode {
@@ -162,11 +158,18 @@
   color: rgb(255, 179, 38);
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all ease 0.5s;
+  animation: down 1.5s ease-out;
 }
 
-.lightMode:hover {
-  color: black;
+@keyframes down {
+  from {
+    opacity: 0;
+    top: -5rem;
+    right: -2rem;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .title-box {

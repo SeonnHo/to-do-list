@@ -1,10 +1,17 @@
 import React from 'react';
 import styles from './ToDo.module.css';
 import { FaTrashAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function ToDo({ todo, onChange }) {
   return (
-    <div className={styles.todo}>
+    <motion.div
+      className={styles.todo}
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 50, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <label>
         <input
           className={styles.checkbox}
@@ -20,6 +27,6 @@ export default function ToDo({ todo, onChange }) {
       >
         <FaTrashAlt className={styles.delete} />
       </div>
-    </div>
+    </motion.div>
   );
 }
