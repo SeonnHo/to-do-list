@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Main.module.css';
 import ToDo from './todo/ToDo';
 import Input from '../input/Input';
@@ -24,21 +24,46 @@ export default function Main({ selected }) {
       id = todos[todos.length - 1].id + 1;
       setTodos((todos) => [...todos, { id, content: input, isChecked: false }]);
     }
+    localStorage.setItem(
+      'list',
+      JSON.stringify([...todos, { id, content: input, isChecked: false }])
+    );
     setInput('');
   };
 
   const handleCheck = (e, id) => {
-    console.log(e.target.checked);
     setTodos((todos) =>
       [...todos].map((todo) =>
         todo.id === id ? { ...todo, isChecked: e.target.checked } : todo
+      )
+    );
+    localStorage.setItem(
+      'list',
+      JSON.stringify(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, isChecked: e.target.checked } : todo
+        )
       )
     );
   };
 
   const handleDelete = (id) => {
     setTodos((todos) => [...todos].filter((todo) => todo.id !== id));
+    localStorage.setItem(
+      'list',
+      JSON.stringify(todos.filter((todo) => todo.id !== id))
+    );
   };
+
+  useEffect(() => {
+    const list = JSON.parse(localStorage.getItem('list'));
+    if (list === null) {
+      setTodos([]);
+      localStorage.setItem('list', JSON.stringify([]));
+    } else {
+      setTodos(list);
+    }
+  }, []);
 
   return (
     <main className={styles.main}>

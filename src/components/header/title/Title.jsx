@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './Title.module.css';
 import { MdSunny, MdEdit, MdClose } from 'react-icons/md';
 import { FaMoon } from 'react-icons/fa';
@@ -11,8 +11,6 @@ export default function Title() {
   const [isChangingTitle, setIsChangingTitle] = useState(false);
   const [input, setInput] = useState('');
   const [isComposing, setIsComposing] = useState(false);
-
-  console.log(title);
 
   const handleChangeTitleClick = () => {
     setIsChangingTitle((prev) => !prev);
@@ -41,7 +39,16 @@ export default function Title() {
     setTitle(input);
     setInput('');
     handleChangeTitleClick();
+    localStorage.title = input;
   };
+
+  useEffect(() => {
+    if (!('title' in localStorage)) {
+      localStorage.title = 'My To-do list';
+    } else {
+      setTitle(localStorage.title);
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
