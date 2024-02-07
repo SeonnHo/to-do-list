@@ -2,7 +2,7 @@
 
 **배포 주소** : https://todolist-sh.netlify.app/ <br />
 
-<img src="https://github.com/SeonnHo/to-do-list/blob/main/src/assets/page.svg" width="100%"/> <br/>
+<img src="https://github.com/SeonnHo/to-do-list/blob/main/src/assets/page.png" width="100%"/> <br/>
 
 ### 기간
 
